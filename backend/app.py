@@ -3,7 +3,8 @@ import pandas as pd
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 import json
-
+import csv
+from random import randint
 from ach_utils import check_achievements
 
 app = Flask(__name__)
@@ -54,12 +55,27 @@ def achievements(uid):
             response_object["descr"] = ach_asset
         return jsonify(response_object)
 
-# VOVA
-# @app.route('/achievments/<uid>', methods=['GET'])
-# # вернуть json по всем ачивментам юзера
 
-# @app.route('/history/<uid>', methods=['GET'])
-# # вернуть последние 10 чисток в json
+@app.route('/history/<uid>', methods=['GET'])
+def get_history(uid):
+    with open(f'user_db/{uid}.csv', 'r') as history_csv:
+        reader = list(csv.reader(history_csv, delimiter=','))
+        titles = reader[0]
+        history = reader[1:11]
+        history_ten = []
 
-# @app.route('/recommendation', methods=['GET'])
-# # сэмплировать рандомную рекомендацию из recommendations.json 
+        for item in history:
+            history_ten.append({titles[0]: item[0],
+                                titles[1]: item[1],
+                                titles[2]: item[2]})
+        history_ten = json.dumps(history_ten)
+
+    return history_ten
+
+
+@app.route('/recommendation/', methods=['GET'])
+def get_recommendation():
+    with open('assets/recommendations.json', 'r', encoding='utf-8') as rec_json:
+        recs_str = ''.join(rec_json.readlines())
+        rec_key = randint(1, len(json.loads(recs_str)))
+        rec = json.dumps(json.loads(recs_str)[str(rec_key)])
