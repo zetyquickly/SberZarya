@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 
+
 def files_exist(uid):
     if not os.path.exists(f"user_db/{uid}.csv"):
         return False
