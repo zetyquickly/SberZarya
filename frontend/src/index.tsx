@@ -8,6 +8,7 @@ import styled from "styled-components";
 import Header from "./Components/Blocks/Header";
 import Footer from "./Components/Blocks/Footer/Footer";
 import Achievements  from "./Components/Pages/Achievements/Achievements"
+import Main from "./Components/Pages/Main/Main"
 
 const PageContainer = styled.main`
   width: 100vw;
@@ -24,6 +25,9 @@ const App = (props:RouteProps) => {
                 <Header location={props.location!.pathname || "/"}/>
 
                 <Switch>
+                    <Route path="/">
+                        <Main/>
+                    </Route>
                     <Route path="/achievements">
                         <Achievements/>
                     </Route>
