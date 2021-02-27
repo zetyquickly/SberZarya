@@ -41,38 +41,39 @@ def write_brushing(uid):
 @app.route('/available_achievements/<uid>', methods=['GET'])
 # вернуть json по всем ачивментам юзера
 def get_achievements(uid):
-    with open(f'user_db/{uid}_a.csv', 'r') as ach_csv:
-        ach = list(csv.reader(ach_csv, delimiter=';'))
-        ach_dict = {}
+    with open(f'user_db/{uid}_a.json', 'r', encoding='utf-8') as ach_json:
+        ach_str = ''.join(ach_json.readlines())
+        ach = json.dumps(json.loads(ach_str))
 
-        for item in ach:
-            ach_dict[item[0]] = [item[1], item[2]]
-
-        history_ten = json.dumps(ach_dict)
+    return ach
 
 
 @app.route('/history/<uid>', methods=['GET'])
 # вернуть последние 10 чисток в json
 def get_history(uid):
     with open(f'user_db/{uid}.csv', 'r') as history_csv:
-        history = list(csv.reader(history_csv, delimiter=';'))[:10]
-        history_ten = {}
+        reader = list(csv.reader(history_csv, delimiter=','))
+        titles = reader[0]
+        history = reader[1:11]
+        history_ten = []
 
         for item in history:
-            history_ten[item[0]] = [item[1], item[2]]
+            history_ten.append({titles[0]: item[0],
+                                titles[1]: item[1],
+                                titles[2]: item[2]})
         history_ten = json.dumps(history_ten)
 
     return history_ten
 
 
-@app.route('/recommendation/<uid>', methods=['GET'])
+@app.route('/recommendation/', methods=['GET'])
 # сэмплировать рандомную рекомендацию из recommendations.json
 # зачем нам uid тут?
-def get_recommendation(uid):
-    rec_number = randint(1, 11)
+def get_recommendation():
     with open('assets/recommendations.json', 'r', encoding='utf-8') as rec_json:
         recs_str = ''.join(rec_json.readlines())
-        rec = json.dumps(json.loads(recs_str)[str(rec_number)])
+        rec_key = randint(1, len(json.loads(recs_str)))
+        rec = json.dumps(json.loads(recs_str)[str(rec_key)])
 
     return rec
 
