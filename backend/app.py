@@ -3,7 +3,6 @@ import pandas as pd
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 import json
-import csv
 from random import randint
 from ach_utils import check_achievements
 
@@ -58,24 +57,20 @@ def achievements(uid):
 
 @app.route('/history/<uid>', methods=['GET'])
 def get_history(uid):
-    with open(f'user_db/{uid}.csv', 'r') as history_csv:
-        reader = list(csv.reader(history_csv, delimiter=','))
-        titles = reader[0]
-        history = reader[1:11]
-        history_ten = []
-
-        for item in history:
-            history_ten.append({titles[0]: item[0],
-                                titles[1]: item[1],
-                                titles[2]: item[2]})
-        history_ten = json.dumps(history_ten)
-
-    return history_ten
+    response_object = {'status': 'success'}
+    if not os.path.exists(f"user_db/{uid}.csv"):
+        response_object['status'] = 'no_such_uid'
+    else:
+        user_data = pd.read_csv(f"user_db/{uid}.csv")
+        response_object["result"] = list(user_data.T.to_dict().values())
+    return jsonify(response_object)
 
 
 @app.route('/recommendation/', methods=['GET'])
 def get_recommendation():
-    with open('assets/recommendations.json', 'r', encoding='utf-8') as rec_json:
-        recs_str = ''.join(rec_json.readlines())
-        rec_key = randint(1, len(json.loads(recs_str)))
-        rec = json.dumps(json.loads(recs_str)[str(rec_key)])
+    response_object = {'status': 'success'}
+    rec_asset = json.load(open("./assets/recommendations.json"))
+    rec_key = randint(1, len(rec_asset) + 1)
+    rec = rec_asset[str(rec_key)]
+    response_object["result"] = rec
+    return jsonify(response_object)
