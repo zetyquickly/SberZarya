@@ -10,6 +10,7 @@ import Footer from "./Components/Blocks/Footer/Footer";
 import Achievements  from "./Components/Pages/Achievements/Achievements"
 import Main from "./Components/Pages/Main/Main"
 import History from "./Components/Pages/History/History"
+import Chat from "./Components/Pages/Chat/Chat"
 
 
 const PageContainer = styled.main`
@@ -27,6 +28,9 @@ const App = (props:RouteProps) => {
                 <Header location={props.location!.pathname || "/"}/>
 
                 <Switch>
+                    <Route path="/chat">
+                        <Chat/>
+                    </Route>
                     <Route path="/history">
                         <History/>
                     </Route>
