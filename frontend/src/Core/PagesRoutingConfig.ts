@@ -4,6 +4,7 @@ interface Routes {
 
 const Routes:Routes = {
     "/": "Главная",
+    "/main": "Главная",
     "/achievements": "Достижения"
 }
 
