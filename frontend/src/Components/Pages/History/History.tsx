@@ -98,6 +98,7 @@ const History = ():JSX.Element => {
                                 {arrTime.map((item, i) => (
                                     <>
                                     <TextBox
+                                        key={i}
                                         size="m"
                                         subTitle={item.subTitle}
                                         title={item.title}

@@ -130,7 +130,9 @@ const HistoryData = () => {
                 </BlockTime>
                 <Stuff>
                     {arrStaff.map((item) => (
-                        <DataList>
+                        <DataList
+                            key={arrStaff.indexOf(item)}
+                        >
                             <BlockIconCard>
                                 <img src={item.icon}/>
                             </BlockIconCard>

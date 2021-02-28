@@ -16,6 +16,7 @@ import {SberZarya} from "./Core/SberZarya";
 import Main from "./Components/Pages/Main/Main"
 import History from "./Components/Pages/History/History"
 import Brushing from "./Components/Pages/Brushing/Brushing";
+import Chat from "./Components/Pages/Chat/Chat"
 
 interface AppProps {
     location:string | undefined
@@ -78,6 +79,9 @@ const App = ():JSX.Element => {
                 <Header/>
 
                 <Switch>
+                    <Route path="/chat">
+                        <Chat/>
+                    </Route>
                     <Route path="/history">
                         <History/>
                     </Route>
