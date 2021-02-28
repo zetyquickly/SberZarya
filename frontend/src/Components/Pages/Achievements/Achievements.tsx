@@ -4,6 +4,7 @@ import styled from "styled-components"
 
 import GeneralBlock from "./Components/GeneralBlock";
 import AchievementCard from "./Components/AchievementCard";
+import {Link} from "react-router-dom";
 
 const AchievementsContainer = styled.div`
   vertical-align:middle;
@@ -47,7 +48,7 @@ const allAwards:Array<object> = [
     }
 ]
 
-const Achievements = () => {
+const Achievements = ():JSX.Element => {
     return(
         <AchievementsContainer>
             <CarouselGridWrapper >
@@ -69,13 +70,15 @@ const Achievements = () => {
                         <Container>
                             <Grid>
                                 {allAwards.map((elem:any) =>
-                                    <AchievementCard
-                                        key={allAwards.indexOf(elem)}
-                                        title={elem.title}
-                                        description={elem.description}
-                                        picture={elem.img}
-                                        earned={awards.indexOf(elem.id) !== -1}
-                                    />
+                                    <Link to={`/achievement=${elem.id}`}>
+                                        <AchievementCard
+                                            key={allAwards.indexOf(elem)}
+                                            title={elem.title}
+                                            description={elem.description}
+                                            picture={elem.img}
+                                            earned={awards.indexOf(elem.id) !== -1}
+                                        />
+                                    </Link>
                                 )}
                             </Grid>
                         </Container>

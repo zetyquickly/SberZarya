@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import ReactDOM from "react-dom";
 import store from "./store";
 import {Provider, useDispatch, useSelector} from 'react-redux';
-import {BrowserRouter, Route, Switch, RouteProps} from "react-router-dom";
+import {BrowserRouter, Route, Switch, useLocation, RouteProps, Redirect} from "react-router-dom";
 import styled from "styled-components";
 
 import {setUserAchievements, setAllAchievements} from "./Components/Pages/Achievements/AchievementsSlice";
@@ -13,7 +13,13 @@ import Achievements  from "./Components/Pages/Achievements/Achievements";
 import UniqueAchievement from "./Components/Pages/UniqueAchievement/UniqueAchievement";
 import {Spinner} from "@sberdevices/ui";
 import {SberZarya} from "./Core/SberZarya";
+import Main from "./Components/Pages/Main/Main"
+import History from "./Components/Pages/History/History"
+import Brushing from "./Components/Pages/Brushing/Brushing";
 
+interface AppProps {
+    location:string | undefined
+}
 
 const initialAchievements = [
     {
@@ -42,6 +48,7 @@ const initialAchievements = [
     }
 ]
 
+
 const PageContainer = styled.main`
   width: 100vw;
   height: 100vh;
@@ -50,10 +57,10 @@ const PageContainer = styled.main`
               radial-gradient(74.68% 149.35% at 50% 149.35%, rgba(0, 102, 255, 0.6) 0%, rgba(8, 8, 8, 0) 99.69%);
 `;
 
-
-const App = (props:RouteProps) => {
+const App = ():JSX.Element => {
     const userAchievementState:boolean = useSelector(({achievements}:SberZarya.AchievementSelectorState) => achievements.userState);
     const allAchievementsState:boolean = useSelector(({achievements}:SberZarya.AchievementSelectorState) => achievements.allState);
+
     const [loading, setLoading] = useState<boolean>(false);
 
     const dispatch = useDispatch();
@@ -68,15 +75,27 @@ const App = (props:RouteProps) => {
     return(
         <PageContainer>
             <BrowserRouter>
-                <Header location={props.location!.pathname || "/"}/>
+                <Header/>
 
                 <Switch>
+                    <Route path="/history">
+                        <History/>
+                    </Route>
                     <Route path="/achievements">
                         <Achievements/>
                     </Route>
                     <Route path="/achievement=:id" render={props => (
                         <UniqueAchievement id={props.match.params.id}/>
                     )}/>
+                    <Route path="/brushing">
+                        <Brushing/>
+                    </Route>
+                    <Route path="/main">
+                        <Main/>
+                    </Route>
+                    <Route path="/">
+                        <Redirect to="/main"/>
+                    </Route>
                 </Switch>
 
                 <Footer/>
@@ -86,12 +105,8 @@ const App = (props:RouteProps) => {
 }
 
 ReactDOM.render(
-    <BrowserRouter>
         <Provider store={store}>
-            <Route path="/" render={(props:RouteProps):JSX.Element => (
-                <App {...props}/>
-            )}/>
-        </Provider>
-    </BrowserRouter>,
+            <App/>
+        </Provider>,
     document.getElementById('root')
 )

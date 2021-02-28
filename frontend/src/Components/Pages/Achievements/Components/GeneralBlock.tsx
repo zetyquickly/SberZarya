@@ -57,7 +57,7 @@ const GeneralBlock = ({achievements, allAchievements}:GeneralBlock):JSX.Element 
                             alt="None"
                         />
             }
-            icons.push(<Col size={1}> {icon} </Col>);
+            icons.push(<Col size={1} key={i}> {icon} </Col>);
         }
         return icons;
     }
