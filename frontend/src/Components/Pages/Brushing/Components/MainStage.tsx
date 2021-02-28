@@ -9,7 +9,6 @@ interface MainStageProps {
     onEnd: () => void
 }
 
-
 interface Option {
     top:string,
     bottom:string
@@ -62,47 +61,44 @@ const Timer = styled.h2`
 `;
 
 const MainStage = ({onEnd}:MainStageProps):JSX.Element => {
-    const currentBrushingTime = useSelector(({brushing}:SberZarya.BrushingSelectorState) => brushing.time);
-    const [time, setTime] = useState<number>(currentBrushingTime);
+    const currentBrushingTime:number = useSelector(({brushing}:SberZarya.BrushingSelectorState) => brushing.time);
+    const [seconds, setSeconds] = useState<number>(currentBrushingTime);
     const dispatch = useDispatch();
 
     let interval = setTimeout(timeUpdate, 1000);
 
     function timeUpdate() {
-        setTime(time+1);
-        clearTimeout(interval);
-        interval = setTimeout(timeUpdate, 1000);
+        setSeconds(seconds+1);
     }
 
     const getZeroed = ():string => {
-        if (time >= 60) {
-            return (time-60) >= 10 ? `${time}` : `0${time}`;
+        if (seconds >= 60) {
+            return (seconds-60) >= 10 ? `${seconds-60}` : `0${seconds-60}`;
         } else {
-            return time >= 10 ? `${time}` : `0${time}`;
+            return seconds >= 10 ? `${seconds}` : `0${seconds}`;
         }
     }
 
     useEffect(() => {
         return function cleanup() {
-            console.log("AA");
             clearTimeout(interval);
-            dispatch(updateTime(time));
+            dispatch(updateTime(seconds));
         }
     }, []);
 
     useEffect(() => {
-        if (time >= 120) {
+        if (seconds >= 120) {
             clearTimeout(interval);
             onEnd();
         }
-    }, [time])
+    }, [seconds]);
 
 
     return(
         <Container>
 
             <TimePart>
-                <Timer>{`0${Math.trunc(time / 60)}:${getZeroed()}`}</Timer>
+                <Timer>{`0${Math.trunc(seconds / 60)}:${getZeroed()}`}</Timer>
             </TimePart>
 
         </Container>

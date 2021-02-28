@@ -19,7 +19,7 @@ const Brushing = ():JSX.Element => {
     const brushingState:boolean = useSelector(({brushing}:SberZarya.BrushingSelectorState):boolean => brushing.ongoingBrushing);
     const dispatch = useDispatch();
 
-    const [stage, setStage] = useState<number>(brushingState ? 2 : 2);
+    const [stage, setStage] = useState<number>(brushingState ? 2 : 1);
 
     const onProceed = ():void => {
         dispatch(brushStart());
