@@ -69,6 +69,7 @@ const MainStage = ({onEnd}:MainStageProps):JSX.Element => {
 
     function timeUpdate() {
         setSeconds(seconds+1);
+        dispatch(updateTime(seconds));
     }
 
     const getZeroed = ():string => {
@@ -82,7 +83,6 @@ const MainStage = ({onEnd}:MainStageProps):JSX.Element => {
     useEffect(() => {
         return function cleanup() {
             clearTimeout(interval);
-            dispatch(updateTime(seconds));
         }
     }, []);
 
