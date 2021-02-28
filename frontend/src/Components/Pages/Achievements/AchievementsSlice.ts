@@ -16,9 +16,6 @@ const setUser:CaseReducer<SberZarya.AchievementState, PayloadAction<Array<number
     state.userAchievements = action.payload;
     state.userState = !0;
 }
-// const addAchievement:CaseReducer<State, PayloadAction<number>> = (state, action:PayloadAction<number>):void => {
-//     state.userAchievements.push(action.payload);
-// }
 
 const AchievementsSlice = createSlice({
     name: "achievements",

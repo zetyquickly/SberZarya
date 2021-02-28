@@ -2,27 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d60fe911-79c7-429a-9a60-8465870a3cf4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/public/assets/icons/Brush-teeth.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/assets/icons/Dental-floss.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/assets/icons/Header-icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/assets/icons/History-main.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/assets/icons/My-achievements.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/assets/icons/Rinse-aid.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/assets/icons/Tongue-cleaning.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/assets/pictures/main_page/main1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/assets/pictures/main_page/main2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/assets/pictures/main_page/main3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/Components/Pages/Brushing/Brushing.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/Components/Pages/History/History.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/Components/Pages/History/HistoryData.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/Components/Pages/Main/Main.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Blocks/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/Blocks/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Pages/Achievements/Achievements.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/Pages/Achievements/Achievements.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Pages/Achievements/Components/GeneralBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/Pages/Achievements/Components/GeneralBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Core/PagesRoutingConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Core/PagesRoutingConfig.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Pages/Brushing/Components/MainStage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/Pages/Brushing/Components/MainStage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +38,7 @@
       <updated>1614407858888</updated>
       <workItem from="1614407859992" duration="2268000" />
       <workItem from="1614413319626" duration="6511000" />
-      <workItem from="1614429571689" duration="36400000" />
+      <workItem from="1614429571689" duration="43912000" />
     </task>
     <servers />
   </component>
@@ -69,9 +50,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1614413316602" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1614497703530">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1614503429605">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1614497703530" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1614503429605" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1614506523262">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1614506523262" />
   </component>
 </project>

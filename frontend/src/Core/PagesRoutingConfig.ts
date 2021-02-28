@@ -5,6 +5,7 @@ interface Routes {
 const Routes:Routes = {
     "/": "Главная",
     "/main": "Главная",
+    "/brushing": "Чистка зубов",
     "/achievements": "Достижения"
 }
 
