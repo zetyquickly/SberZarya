@@ -6,7 +6,7 @@
 
 # Design
 
-Здесь представлены экраны Figma с дизайном нашего веб-сервиса https://www.figma.com/file/x6KRd760oCubzKopyo6yIL/SberZarya?node-id=15057%3A18870
+Здесь представлены экраны Figma с дизайном нашего веб-сервиса https://www.figma.com/file/x6KRd760oCubzKopyo6yIL/SberZarya?node-id=15078%3A6909
 
 # Frontend
 
