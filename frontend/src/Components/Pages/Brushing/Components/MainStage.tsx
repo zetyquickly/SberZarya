@@ -88,6 +88,7 @@ const MainStage = ({onEnd}:MainStageProps):JSX.Element => {
 
     useEffect(() => {
         if (seconds >= 120) {
+            alert("Чистка закончилась!");
             clearTimeout(interval);
             onEnd();
         }

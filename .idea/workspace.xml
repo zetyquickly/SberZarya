@@ -4,7 +4,7 @@
     <list default="true" id="d60fe911-79c7-429a-9a60-8465870a3cf4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/public/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Pages/Brushing/Brushing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/Pages/Brushing/Brushing.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Pages/Brushing/BrushingSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/Pages/Brushing/BrushingSlice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Components/Pages/Brushing/Components/MainStage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/Pages/Brushing/Components/MainStage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +40,7 @@
       <updated>1614407858888</updated>
       <workItem from="1614407859992" duration="2268000" />
       <workItem from="1614413319626" duration="6511000" />
-      <workItem from="1614429571689" duration="43606000" />
+      <workItem from="1614429571689" duration="43761000" />
     </task>
     <servers />
   </component>
