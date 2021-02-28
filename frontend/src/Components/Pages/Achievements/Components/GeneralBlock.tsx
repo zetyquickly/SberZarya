@@ -10,10 +10,11 @@ import {
     Container, CardMedia
 } from "@sberdevices/ui";
 import styled from "styled-components";
+import {SberZarya} from "../../../../Core/SberZarya";
 
 interface GeneralBlock {
     achievements:Array<number>,
-    allAchievements:Array<any>
+    allAchievements:Array<SberZarya.RegularAchievements>
 }
 
 const CardAmount = styled.h2`

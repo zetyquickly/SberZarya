@@ -5,6 +5,8 @@ import styled from "styled-components"
 import GeneralBlock from "./Components/GeneralBlock";
 import AchievementCard from "./Components/AchievementCard";
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {SberZarya} from "../../../Core/SberZarya";
 
 const AchievementsContainer = styled.div`
   vertical-align:middle;
@@ -23,32 +25,10 @@ const Grid = styled.section`
   width: auto;
 `;
 
-const awards:Array<number> = [0];
-
-const allAwards:Array<object> = [
-    {
-        id: 0,
-        title: "Первая чистка",
-        img: "1.svg"
-    },
-    {
-        id: 1,
-        title: "Ранняя пташка",
-        img: "3.svg"
-    },
-    {
-        id: 2,
-        title: "Обеденный перерыв",
-        img: "2.svg"
-    },
-    {
-        id: 3,
-        title: "Обаяшка",
-        img: "4.svg"
-    }
-]
-
 const Achievements = ():JSX.Element => {
+    const allAchievements:Array<SberZarya.RegularAchievements> = useSelector(({achievements}:SberZarya.AchievementSelectorState) => achievements.allAchievements);
+    const userAchievements:Array<number> = useSelector(({achievements}:SberZarya.AchievementSelectorState) => achievements.userAchievements);
+
     return(
         <AchievementsContainer>
             <CarouselGridWrapper >
@@ -61,22 +41,22 @@ const Achievements = ():JSX.Element => {
                 >
                     <CarouselCol>
                         <GeneralBlock
-                            achievements={awards}
-                            allAchievements={allAwards}
+                            achievements={userAchievements}
+                            allAchievements={allAchievements}
                         />
                     </CarouselCol>
 
                     <CarouselCol>
                         <Container>
                             <Grid>
-                                {allAwards.map((elem:any) =>
+                                {allAchievements.map((elem:SberZarya.RegularAchievements, i:number) =>
                                     <Link to={`/achievement=${elem.id}`}>
                                         <AchievementCard
-                                            key={allAwards.indexOf(elem)}
+                                            key={i}
                                             title={elem.title}
                                             description={elem.description}
                                             picture={elem.img}
-                                            earned={awards.indexOf(elem.id) !== -1}
+                                            earned={userAchievements.indexOf(elem.id) !== -1}
                                         />
                                     </Link>
                                 )}

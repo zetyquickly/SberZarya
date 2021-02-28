@@ -16,4 +16,13 @@ export namespace SberZarya {
     export interface AchievementSelectorState {
         achievements:AchievementState
     }
+    
+    export interface BrushingState {
+        ongoingBrushing:boolean,
+        time:number
+    }
+
+    export interface BrushingSelectorState {
+        brushing:BrushingState
+    }
 }

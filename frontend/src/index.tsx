@@ -56,6 +56,7 @@ const PageContainer = styled.main`
   background: linear-gradient(26.05deg, rgba(15, 153, 24, 0.32) 0%, rgba(8, 8, 8, 0) 72.24%), 
               radial-gradient(100% 100% at 0% 100%, rgba(0, 102, 255, 0.2) 0%, rgba(8, 8, 8, 0) 99.69%), 
               radial-gradient(74.68% 149.35% at 50% 149.35%, rgba(0, 102, 255, 0.6) 0%, rgba(8, 8, 8, 0) 99.69%);
+  font-family: Arial, sans-serif;
 `;
 
 const App = ():JSX.Element => {
